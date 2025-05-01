@@ -350,7 +350,7 @@ print(classification_report(y_test, y_pred))
 print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
 
 
-Citation
+#Citation
 The dataset used in this study is sourced from Kaggle. If anyone wants to reproduce it, you can use the following citation:
 
 Citation: Abhi8923shriv, & Shrivastava, A. (2023). Liver disease patient dataset [Data set]. Kaggle. https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset
