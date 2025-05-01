@@ -11,8 +11,8 @@ Citation:
 
 The dataset used in this study is sourced from Kaggle. If anyone wants to reproduce it, you should use the following citation:
 
+Abhi8923shriv, & Shrivastava, A. (2023). Liver disease patient dataset [Data set]. Kaggle. https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset
 
-Citation: Abhi8923shriv, & Shrivastava, A. (2023). Liver disease patient dataset [Data set]. Kaggle. https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset
 - **Features**: 
   - Age of the patient
   - Gender of the patient
