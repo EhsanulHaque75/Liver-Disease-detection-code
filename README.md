@@ -121,6 +121,9 @@ y_pred = model.predict(X_test)
 # Evaluate the Model
 print(classification_report(y_test, y_pred))
 print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
+
+
+* The dataset is used for this study sourced from kaggle .if anyone want to reproduce it use this citation : Abhi8923shriv, & Shrivastava, A. (2023). Liver disease patient dataset [Data set]. Kaggle. https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset .*
 Requirements
 Python (3.6+)
 
