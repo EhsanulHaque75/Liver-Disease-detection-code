@@ -7,8 +7,11 @@ This project focuses on detecting liver disease using machine learning models. T
 - **Source**: The dataset is related to liver disease detection containing various features based on patients' medical records.
 
   
-Citation
-The dataset used in this study is sourced from Kaggle. If anyone wants to reproduce it, you can use the following citation:
+Citation:
+
+The dataset used in this study is sourced from Kaggle. If anyone wants to reproduce it, you should use the following citation:
+
+
 Citation: Abhi8923shriv, & Shrivastava, A. (2023). Liver disease patient dataset [Data set]. Kaggle. https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset
 - **Features**: 
   - Age of the patient
