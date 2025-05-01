@@ -83,48 +83,10 @@ To run this project on Google Colab, follow these steps:
 7. **Plot Results**:
    - Visualize the performance of models using `matplotlib` or `seaborn` to create plots like the ROC curve or confusion matrix.
 
-### Example Code for Google Colab
-Here's a minimal example of code to load data, preprocess, and train a simple model:
-
-```python
-# Import necessary libraries
-import pandas as pd
-from sklearn.model_selection import train_test_split
-from sklearn.ensemble import RandomForestClassifier
-from sklearn.metrics import classification_report, accuracy_score
-
-# Load dataset
-df = pd.read_csv('Liverp.csv', encoding='ISO-8859-1')
-
-# Preprocessing (Fill missing values)
-df['Gender of the patient'] = df['Gender of the patient'].fillna('Unknown')
-
-# Encoding Gender (Label Encoding)
-from sklearn.preprocessing import LabelEncoder
-label_encoder = LabelEncoder()
-df['Gender of the patient'] = label_encoder.fit_transform(df['Gender of the patient'])
-
-# Split the dataset into features and target
-X = df.drop(columns=['Result'])
-y = df['Result']
-
-# Train-Test Split
-X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
-
-# Train a Random Forest Classifier
-model = RandomForestClassifier(random_state=42)
-model.fit(X_train, y_train)
-
-# Make Predictions
-y_pred = model.predict(X_test)
-
-# Evaluate the Model
-print(classification_report(y_test, y_pred))
-print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
 
 
-* The dataset is used for this study sourced from kaggle .if anyone want to reproduce it use this citation : Abhi8923shriv, & Shrivastava, A. (2023). Liver disease patient dataset [Data set]. Kaggle. https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset .*
-Requirements
+
+
 Python (3.6+)
 
 Libraries:
@@ -317,8 +279,7 @@ Augmented Dataset (%)
  
 ​
  
-Citations
-dataset source: https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset.
+
 
 License & Contribution Guidelines
 License: This project is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
@@ -348,3 +309,48 @@ AUC: Area under the ROC curve; measures classification performance.
 Confusion Matrix: Shows true positives, false positives, true negatives, and false negatives.
 
 Precision, Recall, F1-Score: Additional metrics to evaluate classification performance.
+
+### Example Code for Google Colab
+Here's a minimal example of code to load data, preprocess, and train a simple model:
+
+```python
+# Import necessary libraries
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, accuracy_score
+
+# Load dataset
+df = pd.read_csv('Liverp.csv', encoding='ISO-8859-1')
+
+# Preprocessing (Fill missing values)
+df['Gender of the patient'] = df['Gender of the patient'].fillna('Unknown')
+
+# Encoding Gender (Label Encoding)
+from sklearn.preprocessing import LabelEncoder
+label_encoder = LabelEncoder()
+df['Gender of the patient'] = label_encoder.fit_transform(df['Gender of the patient'])
+
+# Split the dataset into features and target
+X = df.drop(columns=['Result'])
+y = df['Result']
+
+# Train-Test Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Train a Random Forest Classifier
+model = RandomForestClassifier(random_state=42)
+model.fit(X_train, y_train)
+
+# Make Predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the Model
+print(classification_report(y_test, y_pred))
+print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
+
+
+
+The dataset used in this study sourced from kaggle. If anyone can reproduce it you can use this citation.
+**Citation:**
+Abhi8923shriv, & Shrivastava, A. (2023). *Liver disease patient dataset* [Data set]. Kaggle. [https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset](https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset)
