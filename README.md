@@ -4,7 +4,9 @@
 This project focuses on detecting liver disease using machine learning models. The dataset contains features related to patients' medical data, including laboratory test results and other relevant metrics. The goal is to classify whether a patient has liver disease based on these features, using various machine learning models. Additionally, the study compares performance using feature engineering and non-feature engineering approaches.
 
 ## Dataset Information
-- **Source**: The dataset is related to liver disease detection containing various features based on patients' medical records. It is collected from kaggle. You can find it from here url: https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset
+- **Source**: The dataset is related to liver disease detection containing various features based on patients' medical records.
+
+  
 Citation
 The dataset used in this study is sourced from Kaggle. If anyone wants to reproduce it, you can use the following citation:
 Citation: Abhi8923shriv, & Shrivastava, A. (2023). Liver disease patient dataset [Data set]. Kaggle. https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset
