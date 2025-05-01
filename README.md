@@ -1,48 +1,347 @@
-README for Liver Disease Prediction Project 🌟
-Overview
-The Liver Disease Prediction Project is an innovative initiative aimed at leveraging machine learning techniques to predict the presence of liver disease in patients. By analyzing a comprehensive dataset containing various clinical and demographic features, this project seeks to provide healthcare professionals with valuable insights that can aid in early diagnosis and treatment. 🩺
+# An optimized XGBoost framework for interpretable and accurate liver disease diagnosis via data analysis and feature engineering.
 
-Purpose
-Liver disease is a significant global health concern, often leading to severe complications if not diagnosed early. This project aims to develop a predictive model that can accurately classify patients as either having liver disease or being healthy. By utilizing advanced machine learning algorithms, we strive to enhance diagnostic accuracy and improve patient outcomes. 💡
+## Description
+This project focuses on detecting liver disease using machine learning models. The dataset contains features related to patients' medical data, including laboratory test results and other relevant metrics. The goal is to classify whether a patient has liver disease based on these features, using various machine learning models. Additionally, the study compares performance using feature engineering and non-feature engineering approaches.
 
-Key Features
-Data Preprocessing: The project includes robust data cleaning and preprocessing steps to handle missing values, encode categorical variables, and normalize numerical features, ensuring high-quality input for the models. 🔧
+## Dataset Information
+- **Source**: The dataset is related to liver disease detection containing various features based on patients' medical records. It is collected from kaggle. You can find it from here url: https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset
+- **Features**: 
+  - Age of the patient
+  - Gender of the patient
+  - Bilirubin levels (Total Bilirubin, Direct Bilirubin)
+  - Enzyme levels (Alkphos, Sgpt, Sgot)
+  - Albumin levels
+  - A/G Ratio (Albumin and Globulin Ratio)
+  - Total Protein levels
+  - Result (1 = Disease, 2 = No Disease)
+  
+- **Data Preprocessing**:
+  - Missing values were handled by filling with appropriate values or using the mean.
+  - Gender column was encoded using Label Encoding.
+  - Shapiro wilk test.
+  - Outliers were removed using the Interquartile Range (IQR) method.
+  - Remove Insignificant column from dataset .
+  - Standardize the dataset.
 
-Exploratory Data Analysis (EDA): Comprehensive EDA is conducted to understand the dataset's structure, identify patterns, and visualize relationships between features, providing a solid foundation for model development. 📊
+## Code Information
+The code implements the following operations:
+1. **Data Loading**: Reads the dataset using Pandas.
+2. **Preprocessing**
+3. **Feature Engineering**: New features were created, including various ratios and enzyme activities.
+4. *Dataset Split
+5. Train set balancing using smote
+6. **Model Training**: Multiple classifiers were trained, including:
+   - Decision Trees
+   - Random Forest
+   - XGBoost
+   - LightGBM
+   - SVM
+   - KNN
+   - MLP
+7. **Model Evaluation**: Models were evaluated using accuracy, confusion matrix, ROC curve, AUC score, and other metrics.
+8. **Hyperparameter Tuning**: Grid search was used to optimize the models' hyperparameters.
+9. **Cross-Validation**: 10-fold cross-validation was performed for model evaluation.
 
-Diverse Model Implementation: A variety of machine learning models, including Random Forest, XGBoost, and Support Vector Classifier, are employed to predict liver disease, allowing for a comparative analysis of their performance. 🤖
+## Usage Instructions
+### Google Colab Setup
+To run this project on Google Colab, follow these steps:
 
-Model Evaluation: The models are rigorously evaluated using metrics such as accuracy, AUC (Area Under the Curve), Cohen's Kappa, and Brier Score, ensuring a thorough assessment of their predictive capabilities. 📈
+1. **Upload the Code and Dataset**:
+   - First, download the code from this respiratory and upload it in google colab, make sure your dataset is accessible in Google Colab. You can upload the dataset directly by running the following code in a Colab cell:
+     ```python
+     from google.colab import files
+     uploaded = files.upload()
+     ```
+   - This will prompt you to upload the dataset (e.g., `Liverp.csv`) from your local machine.
 
-Feature Engineering: The project explores two approaches: one without feature engineering, focusing on basic preprocessing and model training, and another that incorporates feature engineering techniques to enhance model performance. This includes creating new features and normalizing existing ones. ⚙️
+2. **Install Dependencies**:
+   - Install the required libraries by running this code:
+     ```python
+     !pip install -r requirements.txt
+     ```
+   - If you don't have a `requirements.txt` file, you can install libraries individually:
+     ```python
+     !pip install pandas scikit-learn matplotlib seaborn xgboost lightgbm imbalanced-learn shap
+     ```
 
-Hyperparameter Tuning: The project incorporates Grid Search for hyperparameter optimization, enhancing model performance and ensuring the best possible outcomes. This includes tuning parameters for models like Random Forest and XGBoost to find the optimal settings for improved accuracy. 🔍
+3. **Load the Dataset**:
+   - After uploading the dataset, load it into a pandas DataFrame:
+     ```python
+     import pandas as pd
+     df = pd.read_csv('Liverp.csv', encoding='ISO-8859-1')
+     ```
 
-Regularization Techniques: To prevent overfitting and improve model generalization, regularization techniques such as L1 (Lasso) and L2 (Ridge) regularization are applied where applicable. This helps in refining the model by penalizing complex models and encouraging simpler, more interpretable solutions. 🛡️
+4. **Run the Preprocessing Steps**:
+   - Follow the preprocessing steps in the notebook to clean the data, handle missing values, and perform any necessary encoding.
 
-Visual Insights: Confusion matrices and ROC curves are generated to visualize model performance, making it easier to interpret results and communicate findings effectively. 📉
+5. **Train the Models**:
+   - Use the code provided to train the models, perform feature engineering, and evaluate the performance.
 
-Impact
-The successful implementation of this project has the potential to significantly impact the healthcare sector by:
+6. **Model Evaluation**:
+   - You can generate evaluation metrics such as accuracy, confusion matrix, and AUC score for each model.
 
-Enhancing Early Detection: By providing accurate predictions, the model can assist healthcare providers in identifying liver disease at an earlier stage, leading to timely interventions. ⏰
+7. **Plot Results**:
+   - Visualize the performance of models using `matplotlib` or `seaborn` to create plots like the ROC curve or confusion matrix.
 
-Improving Patient Care: With better diagnostic tools, healthcare professionals can tailor treatment plans more effectively, ultimately improving patient outcomes and quality of life. ❤️
+### Example Code for Google Colab
+Here's a minimal example of code to load data, preprocess, and train a simple model:
 
-Reducing Healthcare Costs: Early diagnosis and treatment can lead to reduced healthcare costs associated with advanced liver disease management. 💰
+```python
+# Import necessary libraries
+import pandas as pd
+from sklearn.model_selection import train_test_split
+from sklearn.ensemble import RandomForestClassifier
+from sklearn.metrics import classification_report, accuracy_score
 
-Getting Started
-To replicate this project or utilize the model, follow these steps:
+# Load dataset
+df = pd.read_csv('Liverp.csv', encoding='ISO-8859-1')
 
-Install Required Libraries: Ensure you have the necessary Python libraries installed for data manipulation, machine learning, and visualization. 📦
+# Preprocessing (Fill missing values)
+df['Gender of the patient'] = df['Gender of the patient'].fillna('Unknown')
 
-Load the Dataset: Obtain the Liverp.csv dataset and load it into your environment. 📂
+# Encoding Gender (Label Encoding)
+from sklearn.preprocessing import LabelEncoder
+label_encoder = LabelEncoder()
+df['Gender of the patient'] = label_encoder.fit_transform(df['Gender of the patient'])
 
-Follow the Workflow: Implement the data preprocessing, model training, evaluation, and visualization steps as outlined in the project documentation. 🛠️
+# Split the dataset into features and target
+X = df.drop(columns=['Result'])
+y = df['Result']
 
-Conclusion
-The Liver Disease Prediction Project represents a significant step forward in the application of machine learning in healthcare. By harnessing the power of data, we can improve diagnostic accuracy and ultimately save lives. We invite collaboration, feedback, and contributions to further enhance this project and its impact on public health. 🌍
+# Train-Test Split
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
 
-Acknowledgments
-We extend our gratitude to the contributors of the libraries and datasets used in this project. Your efforts have made this work possible. 🙏 
-You can find the dataset here : https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset
+# Train a Random Forest Classifier
+model = RandomForestClassifier(random_state=42)
+model.fit(X_train, y_train)
+
+# Make Predictions
+y_pred = model.predict(X_test)
+
+# Evaluate the Model
+print(classification_report(y_test, y_pred))
+print(f"Accuracy: {accuracy_score(y_test, y_pred):.4f}")
+Requirements
+Python (3.6+)
+
+Libraries:
+
+Pandas
+
+Scikit-learn
+
+Matplotlib
+
+Seaborn
+
+XGBoost
+
+LightGBM
+
+Imbalanced-learn
+
+SHAP (for model interpretation)
+
+Methodology
+Data Processing
+Handling Missing Data:
+
+Missing values in the dataset were imputed using the mean for numerical columns and the string 'Unknown' for categorical columns (e.g., Gender).
+
+Label Encoding:
+
+Categorical features, such as "Gender of the patient," were encoded using LabelEncoder from scikit-learn.
+
+Outlier Removal:
+
+Outliers were removed using the Interquartile Range (IQR) method, where values outside of the range [Q1 - 1.5 * IQR, Q3 + 1.5 * IQR] were discarded.
+
+Feature Engineering
+New Features:
+
+The following new features were created:
+
+Bilirubin to Albumin ratio: Total Bilirubin / ALB Albumin
+
+Direct Bilirubin to Total Bilirubin ratio: Direct Bilirubin / Total Bilirubin
+
+Total Enzyme Activity: Sgpt + Sgot
+
+Bilirubin Protein Indicator: A binary feature indicating whether Total Bilirubin is greater than 1.0.
+
+Modeling
+Model Selection:
+
+We trained several machine learning models to detect liver disease, including:
+
+Decision Trees (DT)
+
+Random Forest (RF)
+
+XGBoost (XGB)
+
+LightGBM (LGBM)
+
+K-Nearest Neighbors (KNN)
+
+Support Vector Classifier (SVC)
+
+Multi-Layer Perceptron (MLP)
+
+Hyperparameter Tuning:
+
+We used GridSearchCV for hyperparameter tuning to optimize model parameters such as max_depth for decision trees and n_estimators for ensemble models.
+
+Evaluation
+Metrics:
+
+Models were evaluated based on various metrics:
+
+Accuracy: Percentage of correct predictions.
+
+AUC (Area Under the Curve): Measures the model's ability to distinguish between classes.
+
+Confusion Matrix: A matrix that shows the true positives, true negatives, false positives, and false negatives.
+
+ROC Curve: A graphical representation of a model's diagnostic ability.
+
+Feature Engineering vs. Non-Feature Engineering
+In this study, we explore both feature engineering and non-feature engineering approaches. The performance of models was compared on the original dataset and the augmented dataset with engineered features.
+
+Performance Comparison: Feature Engineering vs. Non-Feature Engineering
+This study explores both the feature engineering approach and the non-feature engineering approach. Below are the results of experiments comparing the performance on the original and augmented datasets.
+
+Table 1: Model Performance (AUC) for Original and Augmented Datasets
+Model
+Original
+ 
+Dataset
+Augmented
+ 
+Dataset
+DT
+0.9573
+0.9891
+ET
+1.0000
+1.0000
+XGB
+1.0000
+1.0000
+LGBM
+0.9998
+1.0000
+RF
+1.0000
+1.0000
+KNN
+0.9996
+0.9998
+MLP
+0.9994
+1.0000
+SVC
+0.9282
+0.9462
+VC
+1.0000
+1.0000
+Model
+DT
+ET
+XGB
+LGBM
+RF
+KNN
+MLP
+SVC
+VC
+​
+  
+Original Dataset
+0.9573
+1.0000
+1.0000
+0.9998
+1.0000
+0.9996
+0.9994
+0.9282
+1.0000
+​
+  
+Augmented Dataset
+0.9891
+1.0000
+1.0000
+1.0000
+1.0000
+0.9998
+1.0000
+0.9462
+1.0000
+​
+ 
+​
+ 
+Table 2: Model Performance (Test Accuracy) for Original and Augmented Datasets
+Model
+
+  
+Original Dataset (%)
+85.41
+100.00
+99.23
+98.97
+100.00
+99.95
+99.95
+87.08
+99.95
+​
+  
+Augmented Dataset (%)
+93.62
+100.00
+100.00
+99.97
+100.00
+99.97
+99.97
+92.82
+99.97
+​
+ 
+​
+ 
+Citations
+dataset source: https://www.kaggle.com/datasets/abhi8923shriv/liver-disease-patient-dataset.
+
+License & Contribution Guidelines
+License: This project is licensed under the Creative Commons Attribution 4.0 International License (CC BY 4.0).
+
+Contribution: Contributions are welcome! Please fork the repository, make your changes, and submit a pull request.
+
+Materials & Methods
+Computing Infrastructure:
+Operating System: Windows/Linux (depends on your local setup)
+
+Hardware: Any system capable of running Python with sufficient memory for dataset handling.
+
+Evaluation Method:
+Test Accuracy: Measures how well the model generalizes to unseen data.
+
+AUC Score: Evaluates the model's ability to distinguish between classes.
+
+Confusion Matrix: Analyzes classification errors and successes.
+
+ROC Curve: Assesses the trade-off between sensitivity and specificity.
+
+Assessment Metrics:
+Accuracy: Percentage of correct predictions.
+
+AUC: Area under the ROC curve; measures classification performance.
+
+Confusion Matrix: Shows true positives, false positives, true negatives, and false negatives.
+
+Precision, Recall, F1-Score: Additional metrics to evaluate classification performance.
