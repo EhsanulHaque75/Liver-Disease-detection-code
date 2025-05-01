@@ -324,9 +324,9 @@ Contribution: Contributions are welcome! Please fork the repository, make your c
 
 Materials & Methods
 Computing Infrastructure:
-Operating System: Windows/Linux (depends on your local setup)
+Operating System: Windows 11.
 
-Hardware: Any system capable of running Python with sufficient memory for dataset handling.
+Hardware: Processor: I7 1165G7, RAM:16GB, DPU: MX450 2 GB .
 
 Evaluation Method:
 Test Accuracy: Measures how well the model generalizes to unseen data.
