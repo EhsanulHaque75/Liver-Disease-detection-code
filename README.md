@@ -284,7 +284,10 @@ Augmented Dataset (%)
 92.82
 99.97
 ​
- 
+Citations :
+1. Nilofer, A. and Sasikala, S. (2023). A comparative study of machine learning algorithms using explainable755
+artificial intelligence system for predicting liver disease. Computing Open, 01:2350003.756
+
 ​
  
 
