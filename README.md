@@ -92,7 +92,7 @@ To run this project on Google Colab, follow these steps:
    - Visualize the performance of models using `matplotlib` or `seaborn` to create plots like the ROC curve or confusion matrix.
 
 
-
+*Requirments
 
 
 Python (3.6+)
@@ -184,105 +184,7 @@ In this study, we explore both feature engineering and non-feature engineering a
 Performance Comparison: Feature Engineering vs. Non-Feature Engineering
 This study explores both the feature engineering approach and the non-feature engineering approach. Below are the results of experiments comparing the performance on the original and augmented datasets.
 
-Table 1: Model Performance (AUC) for Original and Augmented Datasets
-Model
-Original
- 
-Dataset
-Augmented
- 
-Dataset
-DT
-0.9573
-0.9891
-ET
-1.0000
-1.0000
-XGB
-1.0000
-1.0000
-LGBM
-0.9998
-1.0000
-RF
-1.0000
-1.0000
-KNN
-0.9996
-0.9998
-MLP
-0.9994
-1.0000
-SVC
-0.9282
-0.9462
-VC
-1.0000
-1.0000
-Model
-DT
-ET
-XGB
-LGBM
-RF
-KNN
-MLP
-SVC
-VC
-​
-  
-Original Dataset
-0.9573
-1.0000
-1.0000
-0.9998
-1.0000
-0.9996
-0.9994
-0.9282
-1.0000
-​
-  
-Augmented Dataset
-0.9891
-1.0000
-1.0000
-1.0000
-1.0000
-0.9998
-1.0000
-0.9462
-1.0000
-​
- 
-​
- 
-Table 2: Model Performance (Test Accuracy) for Original and Augmented Datasets
-Model
 
-  
-Original Dataset (%)
-85.41
-100.00
-99.23
-98.97
-100.00
-99.95
-99.95
-87.08
-99.95
-​
-  
-Augmented Dataset (%)
-93.62
-100.00
-100.00
-99.97
-100.00
-99.97
-99.97
-92.82
-99.97
 ​
 Citations :
 1. Nilofer, A. and Sasikala, S. (2023). A comparative study of machine learning algorithms using explainable755
